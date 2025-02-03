@@ -3,13 +3,15 @@ import { chipImg, frameImg, frameVideo } from '../utils'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { animateWithGsap } from '../utils/animations'
+import ScrollTrigger from "gsap/all"
+gsap.registerPlugin(ScrollTrigger)
 
 const HowItWorks = () => {
     const videoRef = useRef();
 
 useGSAP(()=>{
    gsap.from('#chip',{
-    ScrollTrigger:{
+    scrollTrigger:{
         trigger:'#chip',
         start:'20% bottom'
     },
@@ -55,7 +57,7 @@ useGSAP(()=>{
                     </div>
                     <div className="hiw-video">
                         <video className='pointer-events-none'
-                        playsInLine preLoad="none" muted
+                        playsInline preload="none" muted
                         autoPlay ref={videoRef}>
                             
                             <source src={frameVideo} type="video/mp4"/>
